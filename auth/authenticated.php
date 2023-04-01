@@ -6,7 +6,7 @@ should be not open the login and register page
 <?php
  session_start();
  if(isset($_SESSION["user_id"])){
-   header('Location:/places_app/app/home.php');
+   header('Location:/places_app/app/index.php');
    die();
  }
  ?>
