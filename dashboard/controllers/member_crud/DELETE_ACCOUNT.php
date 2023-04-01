@@ -18,5 +18,5 @@
 
     $conn->close();
 
-    header('Location:/places_app/app/home.php')
+    header('Location:/places_app/app/index.php')
 ?>
