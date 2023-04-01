@@ -1,0 +1,26 @@
+Dashboard :
+    - Admin :
+        * Get all users
+        * Delete users
+        * update users
+        * Search for a user
+
+        * Get all posts
+        * Delete posts
+        * update posts
+        
+        * Get comments
+        * Delete comments
+        * Update comments
+
+    - Member : 
+        * Get user places
+        * Create place
+        * Update place
+        * Delete place
+
+Home page :
+
+    * Get All places
+    * Search for a place by name
+    * Search for a place by category 

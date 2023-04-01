@@ -1,0 +1,623 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  background-color: #f0f0f0;
+  padding: 0 80px;
+  box-shadow: 0 4px 4px #0003;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  border-right: 2px solid #000;
+  padding-right: 0.5rem;
+  margin-right: 1rem;
+}
+
+.logo h3 {
+  color: #613beb;
+  text-shadow: 0 4px 4px #0002;
+  margin-right: 1rem;
+}
+
+.logo p {
+  color: #ff7f56;
+  font-weight: bold;
+}
+
+.left-header div a {
+  color: #505050;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: 0.2s ease-in-out 0.3s;
+  margin-right: 0.5rem;
+}
+
+#active,
+.left-header div a:hover {
+  color: #613beb;
+  border-bottom: 4px solid #613beb;
+}
+
+.profile {
+  /* width: 9.5%; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background-color: rgb(53, 53, 53);
+  padding: 0.2rem 1rem;
+  border-radius: 50px;
+}
+
+.profile a {
+  text-decoration: none;
+  color: white;
+}
+.table-container {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.page-title {
+  text-transform: capitalize;
+  width: 80%;
+  margin: 50px 0 0;
+}
+
+.table-container div h2 {
+  text-align: start;
+}
+
+.table {
+  background-color: #eaeaea;
+  width: 80%;
+  height: 450px;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px #613beb95;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+.table::-webkit-scrollbar {
+  background-color: #fff;
+  width: 5px;
+  border-radius: 0 25px 25px 0;
+}
+
+.table::-webkit-scrollbar-thumb {
+  background-color: #613beb;
+  border-radius: 0 25px 25px 0;
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0 20px;
+  width: 90%;
+}
+
+thead {
+  position: sticky;
+  top: 0px;
+}
+
+tbody tr {
+  box-shadow: 0 4px 4px #0002;
+  border-radius: 10px;
+}
+
+th,
+td {
+  width: calc(100% / 6);
+  background-color: #fff;
+  color: #613beb;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+th {
+  font-family: Roboto;
+  font-size: 1.1em;
+  height: 60px;
+}
+
+td {
+  height: 80px;
+  color: #0009;
+  font-size: 0.8em;
+  overflow: hidden;
+}
+
+.first-cell {
+  border-radius: 10px 0 0 10px;
+}
+
+.last-cell {
+  border-radius: 0 10px 10px 0;
+  /* background-scolor: ; */
+}
+.last-cell a,
+.delete {
+  background-color: rgb(108, 236, 108);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.delete {
+  background-color: rgb(255, 126, 126);
+}
+
+/* .delete{
+
+} */
+
+th input,
+td input {
+  background-color: #eeeeee;
+  margin: 0 auto;
+  color: #3b77eb;
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 4px #0002;
+}
+
+th input:hover,
+td input:hover {
+  border: 1px solid #613beb;
+}
+
+.role span {
+  background-color: #eee;
+  color: #000;
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 4px #0001;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stars {
+  width: 30px !important;
+  height: 30px;
+  margin-right: 10px;
+  box-shadow: 0 4px 4px #000000;
+}
+
+td input[value="Delete"] {
+  color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Log In Part */
+
+.log-in {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gray-box {
+  width: 450px;
+  height: 500px;
+  background-color: #f0f0f0;
+  text-transform: capitalize;
+  border-radius: 25px;
+  box-shadow: 0 4px 4px #0002;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.white-box {
+  width: 100%;
+  height: 88%;
+  background-color: #fff;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register {
+  font-family: Roboto;
+  font-size: 1.2em;
+  color: #613beb50;
+  margin-top: 4%;
+  cursor: pointer;
+  transition: color 0.2s linear 0.2s;
+}
+
+.active,
+.register:hover {
+  color: #613beb;
+}
+
+form {
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: space-around;
+}
+
+form[action="sign-up"] {
+  height: 90%;
+}
+
+.gray-box > h3 {
+  font-family: Roboto;
+  font-size: 1.2em;
+  color: #613beb;
+  margin-top: 20px;
+}
+
+.take-input {
+  width: 75%;
+  display: block;
+}
+
+.password {
+  position: relative;
+}
+
+.error-password {
+  font-size: 0.6em;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+}
+
+.checkbox {
+  width: 120px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox label {
+  font-size: 0.8em;
+}
+
+#name,
+#email,
+#password {
+  font-family: Roboto;
+  width: 100%;
+  height: 50px;
+  font-size: 1em;
+  padding: 0 10px;
+  margin-top: 1px;
+  border: 2px solid #f2f3f9;
+  border-radius: 10px;
+}
+
+#name:focus,
+#email:focus,
+#password:focus {
+  outline: 2px solid #613beb;
+}
+
+#submit {
+  font-size: 1.1em;
+  width: 100%;
+  height: 50px;
+  margin: 30px 0 0;
+  background-color: #613beb;
+  color: #eee;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px #0002;
+}
+
+/* member Log In part */
+
+.purple-box {
+  width: 100%;
+  height: 100vh;
+  background-color: #613beb;
+  box-shadow: 0 4px 4px #0004;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image {
+  width: 50%;
+  height: 100%;
+  background-image: url("https://www.hdnicewallpapers.com/Walls/Big/Rainbow/Rainbow_on_Mountain_HD_Image.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image div {
+  width: 70%;
+  height: 25%;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 180px;
+}
+
+.image div h2 {
+  color: #eaeaea;
+  text-shadow: 0 1px 2px #000;
+}
+
+.image div p {
+  font-size: 0.9em;
+  color: #eeeeee;
+  text-shadow: 0 1px 1px #000;
+  text-align: center;
+}
+
+.image div p span {
+  font-style: italic;
+  display: block;
+  position: relative;
+  right: 150px;
+  top: 10px;
+}
+
+.registration {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.box-headers {
+  width: 80%;
+  height: 8%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* 
+ * Always set the map height explicitly to define the size of the div element
+ * that contains the map. 
+ */
+#map {
+  height: 100%;
+}
+
+/* 
+   * Optional: Makes the sample page fill the window. 
+   */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.place-popup,
+.user-popup {
+  text-transform: capitalize;
+  width: 100%;
+  height: 100%;
+  background-color: #0003;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.place-popup h3,
+.user-popup h3 {
+  color: #613beb;
+  border-bottom: 3px solid #613beb;
+}
+
+.all-popups {
+  background-color: #eaeaea;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.add-place,
+.modify-place,
+.add-user,
+.modify-user {
+  width: 50%;
+  height: 80%;
+  padding: 20px 50px;
+}
+
+.delete-place,
+.delete-user {
+  width: 20%;
+  height: 25%;
+}
+
+.delete-place p,
+.delete-user p {
+  font-size: 0.9em;
+}
+
+form {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form div {
+  width: 100%;
+}
+
+.text-input,
+.map-input {
+  width: 100%;
+  height: 50px;
+  font-size: 1.1em;
+  padding: 0 10px;
+  border: none;
+  border-radius: 10px;
+  display: block;
+}
+
+.map-input {
+  padding: 0;
+  overflow: hidden;
+}
+
+.text-input:focus {
+  outline: 2px solid #613beb;
+}
+
+.map-input {
+  height: 800px;
+  margin: 1rem 0;
+  color: #613beb;
+  background-color: rgb(216, 216, 216);
+  border: 1px solid #613beb;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+textarea {
+  height: 70px !important;
+  border-radius: 2px;
+  resize: none;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.select-role {
+  width: 80px;
+  height: 40px;
+  color: #fff;
+  background-color: #613beb;
+  padding: 0 5px;
+  border: none;
+  border-right: 5px solid #613beb;
+  border-radius: 5px;
+}
+
+.buttons-section {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.buttons-section input,
+button,
+#modifyUser-btn {
+  width: 25%;
+  height: 40px;
+  margin-left: 5%;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.buttons-section input:nth-child(1) {
+  background-color: #fff;
+  color: #613beb;
+  border: 2px solid #613beb;
+}
+
+.buttons-section input:nth-child(2) {
+  background-color: #613beb;
+  color: #fff;
+  border: 2px solid #613beb;
+}
+
+.delete_buttons-section {
+  justify-content: space-around;
+}
+
+.delete_buttons-section input {
+  border-radius: 10px;
+  margin: 0;
+}
+
+.delete_buttons-section input:nth-child(2) {
+  background-color: rgb(214, 3, 3);
+  border-color: rgb(214, 3, 3);
+}
+
+.hide-popup {
+  display: none;
+}
+
+#form_place-description {
+  padding: 0.5rem;
+}
+
+.buttons-section button {
+  background-color: #613beb;
+  color: white;
+}
+
+#modifyUser-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #613beb;
+  color: white;
+}

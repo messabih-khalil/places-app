@@ -1,0 +1,29 @@
+.table-container {
+    height: 650px;
+}
+
+.table {
+    height: 500px;
+}
+
+td {
+    height: 120px;
+}
+
+th, td {
+    width: 20%;
+}
+
+td img {
+    display: block;
+    margin: auto;
+    height: 90%;
+    width: 75%;
+    border: 2px solid #613beb;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px #0002;
+}
+
+.gray-box {
+    height: 550px;
+}
