@@ -63,7 +63,7 @@ nav span {
   color: var(--main-color);
 }
 
-nav button {
+nav .user-action a {
   padding: 1rem 2rem;
   border-radius: var(--s-border-radius);
   border: 3px solid var(--main-color);
@@ -277,10 +277,12 @@ select {
 
 .comment-data {
   margin-left: 1rem;
+  width: 100%;
 }
 .user-info {
   border-bottom: 3px solid var(--main-color);
   padding-bottom: 0.5rem;
+  width: 100%;
 }
 
 .user-info p {

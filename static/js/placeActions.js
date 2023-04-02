@@ -12,7 +12,7 @@ function initMap() {
         lat: 36.5032201004047,
         lng: 1.2939834594726562,
       },
-      zoom: 8,
+      zoom: 20,
     });
 
     // Add a listener for the click event on the map
@@ -66,7 +66,6 @@ document.getElementById("addPlaceBtn").addEventListener("click", (e) => {
 // Update place
 
 const updatePlace = (placeId) => {
-  console.log(placeId);
   document.getElementById("updatePlaceBtn").addEventListener("click", (e) => {
     e.preventDefault();
     // create new hidden input to set place id
@@ -82,7 +81,6 @@ const updatePlace = (placeId) => {
     form.appendChild(coordinate[0]);
     form.appendChild(coordinate[1]);
     form.appendChild(placeIdInput);
-    console.log(form);
     form.submit();
   });
 };

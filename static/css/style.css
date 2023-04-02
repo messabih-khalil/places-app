@@ -504,8 +504,7 @@ form div {
   width: 100%;
 }
 
-.text-input,
-.map-input {
+.text-input {
   width: 100%;
   height: 50px;
   font-size: 1.1em;
@@ -515,36 +514,19 @@ form div {
   display: block;
 }
 
-.map-input {
-  padding: 0;
-  overflow: hidden;
-}
-
 .text-input:focus {
   outline: 2px solid #613beb;
 }
 
 .map-input {
-  height: 800px;
+  height: 100px;
   margin: 1rem 0;
-  color: #613beb;
-  background-color: rgb(216, 216, 216);
-  border: 1px solid #613beb;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
 }
 
 textarea {
   height: 70px !important;
   border-radius: 2px;
   resize: none;
-}
-
-input[type="file"] {
-  display: none;
 }
 
 .select-role {
@@ -562,17 +544,17 @@ input[type="file"] {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .buttons-section input,
 button,
 #modifyUser-btn {
-  width: 25%;
-  height: 40px;
-  margin-left: 5%;
+  padding: 0.5rem 2rem;
   border-radius: 5px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  margin: 0 0 0 1rem;
 }
 
 .buttons-section input:nth-child(1) {
@@ -620,4 +602,24 @@ button,
   justify-content: center;
   background-color: #613beb;
   color: white;
+}
+
+.upload-image {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+div input,
+div textarea {
+  margin: 1rem 0;
+}
+
+.popup {
+  height: 100vh;
+}
+
+.all-popups {
+  height: 90vh;
+  overflow-y: scroll;
 }

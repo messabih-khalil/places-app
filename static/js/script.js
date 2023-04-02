@@ -21,24 +21,24 @@ function changeRegisterStatus() {
 const passwordElement = document.querySelectorAll("#password");
 
 function displayPasswordStatus() {
-  console.log("inside function")
-  passwordElement.forEach(element => {
+  ("inside function");
+  passwordElement.forEach((element) => {
     const password = element.value;
     const error = element.parentElement.querySelector(".error-password");
-    console.log(error);
+    error;
     element.addEventListener("blur", function () {
       if (password.length > 14) {
         error.innerHTML = "password must have less than 15 characters";
         error.style.color = "red";
-        console.log("long")
+        ("long");
       } else if (password.length < 8) {
         error.innerHTML = "password must have more than 7 characters";
         error.style.color = "red";
-        console.log("short")
+        ("short");
       } else {
         error.innerHTML = "you're good to go";
         error.style.color = "green";
-        console.log("good")
+        ("good");
       }
     });
   });
