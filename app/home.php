@@ -117,7 +117,7 @@
                                 e)
                         })
 
-                        console.log(data);
+                        (data);
                     }
                 },
 

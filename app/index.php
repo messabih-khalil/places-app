@@ -1,5 +1,10 @@
 <?php
     $places=require __DIR__ . '../../places/controllers/GET_ALL.php';
+    // Start the session
+    session_start();
+
+    // Check if user_id is set in session
+    $user_id = $_SESSION['user_id'] ?? null;
 
 ?>
 
@@ -20,7 +25,7 @@
     <!-- Map config -->
     <script script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-    <script type="module" src="../static/js/map.js"></script>
+    <!-- <script type="module" src="../static/js/map.js"></script> -->
 
     <style></style>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
@@ -39,11 +44,15 @@
                 <span>TnesCity</span>
                 <!-- user action -->
                 <div class="user-action">
-                    <button>
-                        <a href="../auth/authentication/index.php">Login</a>
-                    </button>
-                    <!-- Show only when the user is logged in -->
-                    <!-- <button>Logout</button> -->
+                    <?php if ($user_id): ?>
+
+                    <a href="../auth/logout.php">Logout</a>
+                    <a href="../auth/register-middleware.php">Dashboard</a>
+                    <?php else: ?>
+
+
+                    <a href="../auth/authentication/index.php">Login</a>
+                    <?php endif; ?>
                 </div>
             </nav>
 
@@ -79,10 +88,10 @@
 
 
 
-                <div class="box">
+                <div class="box" onclick="showMap(<?= $place['lat'] ?> , <?= $place['lng'] ?>)">
                     <!-- image -->
                     <div class="image-box">
-                        <img src="https://picsum.photos/200" alt="" />
+                        <img src="<?= $place['image_path'] ?>" alt="">
                     </div>
                     <!-- place details -->
                     <div class="place-details">
@@ -94,7 +103,7 @@
                         </p>
 
                         <!-- comment button -->
-                        <i class="ri-message-2-line" id="open_popup"></i>
+                        <i class="ri-message-2-line" id="open_popup" onclick="showComments(<?= $place['id'] ?>)"></i>
                     </div>
                 </div>
                 <?php endforeach; ?>
@@ -114,38 +123,21 @@
 
     <section class="popup hide-popup" id="popup">
         <div class="popup-overlay">
-            <i class="ri-close-circle-line" id="close_popup"></i>
+            <i class="ri-close-circle-line" id="close_popup" onclick="closePopup()"></i>
             <p>Comments</p>
             <div class="popup-body">
                 <div class="comments">
                     <!-- Comment box -->
-                    <div class="comment-box">
-                        <!-- image -->
-                        <div class="avatar-image">
-                            <img src="https://picsum.photos/200" alt="" />
-                        </div>
-                        <!--  -->
-                        <div class="comment-data">
-                            <div class="user-info">
-                                <p>Messabih Alaa</p>
-                                <span>18 march 2022</span>
-                            </div>
-
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea
-                                voluptatibus tenetur veniam reiciendis corrupti dolorum
-                                nesciunt architecto reprehenderit.
-                            </p>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Comment input -->
+                <?php if ($user_id): ?>
 
                 <div class="comment-input">
-                    <input type="text" placeholder="Share your thoughts ..." />
-                    <i class="ri-send-plane-fill"></i>
+                    <input type="text" placeholder="Share your thoughts ..." id="comment_input" name="comment_text" />
+                    <i class="ri-send-plane-fill" onclick="addComment()"></i>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </section>
@@ -157,84 +149,8 @@
 
     <!-- <script src="../static/js/popup.js"></script> -->
 
-    <script>
-    const searchByName = async (e) => {
-        const inputValue = document.getElementById("place_name");
-        let placesBox = document.querySelector(".boxes")
-        let searchPlaces = ``;
-        if (inputValue.value !== '') {
+    <script src="../static/js/home.js">
 
-            await $.ajax({
-                    type: 'GET',
-                    url: `http://localhost/places_app/places/controllers/GET_BY_NAME.php?place_name=${inputValue.value}`,
-
-                    success: (data) => {
-                        data = JSON.parse(data)
-
-                        data.map((e) => {
-                            console.log(e);
-                            searchPlaces += `
-                           <div class="box">
-                    <!-- image -->
-                    <div class="image-box">
-                        <img src="https://picsum.photos/200" alt="" />
-                    </div>
-                    <!-- place details -->
-                    <div class="place-details">
-                        <!-- title -->
-                        <p class="title">${e.name}</p>
-                        <!-- description -->
-                        <p class="description">
-                        ${e.description}
-                        </p>
-
-                        <!-- comment button -->
-                        <i class="ri-message-2-line" id="open_popup"></i>
-                    </div>
-                </div>
-                           `
-                        })
-                        placesBox.innerHTML = searchPlaces
-                    }
-
-                },
-
-            )
-        }
-
-    }
-
-    document.getElementById("search_button").addEventListener('click', searchByName)
-
-
-    // // Filter by category
-    // const searchByCategory = (e) => {
-    //     var e = document.getElementById("ddlViewBy");
-    //     var value = e.value;
-    //     if (value !== '') {
-
-    //         $.ajax({
-    //                 type: 'GET',
-    //                 url: `http://localhost/places_app/places/controllers/GET_BY_CATEGORY.php?place_category=${value}`,
-
-    //                 success: (data) => {
-    //                     data = JSON.parse(data)
-
-    //                     data.map((e) => {
-    //                         // Push data to html
-    //                         document.getElementById("category_result").innerHTML += JSON.stringify(
-    //                             e)
-    //                     })
-
-    //                     console.log(data);
-    //                 }
-    //             },
-
-    //         )
-    //     }
-    // }
-
-    // document.getElementById("search_button_category").addEventListener('click', searchByCategory)
     </script>
 </body>
 
