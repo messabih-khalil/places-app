@@ -35,7 +35,7 @@
         $_SESSION["role"] = $user["role"];
 
         // Redirect the process to middleware for filter user
-        header("Location:../register-middleware.php");
+        header("Location:../../app/index.php");
 
         exit;
     }
