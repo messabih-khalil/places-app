@@ -1,6 +1,9 @@
 <?php
   include '../../../auth/authorization/admin.php';
   $places=require __DIR__ . '../../../../places/controllers/GET_ALL.php';
+
+  
+    // Define this url for image url
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +81,7 @@
                         <td>
                             <?= $place["lng"] ?>
                         </td>
-                        <td></td>
+                        <td> <img src="<?= $place['image_path'] ?>" alt=""></td>
                         <td><a class="delete"
                                 href="/places_app/places/controllers/DELETE_PLACE.php?place_id=<?=$place["id"]?>">Delete</a>
                         </td>
@@ -86,20 +89,23 @@
                                 onclick="popupAction('modifyPlace' , <?= $place['id'] ?> , 'modifyPlace')">
                                 Modify
                             </a></td>
-
                     </tr>
+
                     <?php endforeach; ?>
 
 
                 </tbody>
+
             </table>
         </div>
+
     </div>
     <!-- Add Place -->
     <div class="place-popup hide-popup popup" data-popup-name="addPlace">
         <div class="all-popups add-place">
             <h3>add place</h3>
-            <form method="POST" action="/places_app/places/controllers/POST_PLACE.php" id="addPlaceForm">
+            <form method="POST" action="/places_app/places/controllers/POST_PLACE.php" enctype="multipart/form-data"
+                id="addPlaceForm">
                 <input type="hidden" value="<?=$_SESSION["user_id"]?>" name="user_id">
                 <div>
                     <label for="form_place-name">name</label>
@@ -109,6 +115,10 @@
                     <label for="form_place-description">description</label>
                     <textarea name="description" id="form_place-description" class="text-input" cols="30"
                         rows="10"></textarea>
+                </div>
+                <div class="upload-image">
+                    <label for="form_place-description">Image</label>
+                    <input type="file" name="image">
                 </div>
                 <div class="map-input">
                     <div id="map"></div>
@@ -127,7 +137,8 @@
     <div class="place-popup hide-popup popup" data-popup-name="modifyPlace">
         <div class="all-popups add-place">
             <h3>Modify place</h3>
-            <form method="POST" action="/places_app/places/controllers/UPDATE_PLACE.php" id="modifyPlaceForm">
+            <form method="POST" action="/places_app/places/controllers/UPDATE_PLACE.php" id="modifyPlaceForm"
+                enctype="multipart/form-data">
                 <input type="hidden" value="<?=$_SESSION["user_id"]?>" name="user_id">
                 <div>
                     <label for="form_place-name">name</label>
@@ -137,6 +148,10 @@
                     <label for="form_place-description">description</label>
                     <textarea name="description" id="form_place-description" class="text-input" cols="30"
                         rows="10"></textarea>
+                </div>
+                <div class="upload-image">
+                    <label for="form_place-description">Image</label>
+                    <input type="file" name="image">
                 </div>
                 <div class="map-input">
                     <div id="map2"></div>

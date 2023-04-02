@@ -77,7 +77,7 @@
                         <td>
                             <?= $place["lng"] ?>
                         </td>
-                        <td></td>
+                        <td> <img src="<?= $place['image_path'] ?>" alt=""></td>
                         <td><a href="/places_app/places/controllers/DELETE_PLACE.php?place_id=<?=$place["id"]?>"
                                 class="delete">Delete</a>
                         </td>
@@ -97,7 +97,8 @@
     <div class="place-popup hide-popup popup" data-popup-name="addPlace">
         <div class="all-popups add-place">
             <h3>add place</h3>
-            <form method="POST" action="/places_app/places/controllers/POST_PLACE.php" id="addPlaceForm">
+            <form method="POST" action="/places_app/places/controllers/POST_PLACE.php" id="addPlaceForm"
+                enctype="multipart/form-data">
                 <input type="hidden" value="<?=$_SESSION["user_id"]?>" name="user_id">
                 <div>
                     <label for="form_place-name">name</label>
@@ -107,6 +108,10 @@
                     <label for="form_place-description">description</label>
                     <textarea name="description" id="form_place-description" class="text-input" cols="30"
                         rows="10"></textarea>
+                </div>
+                <div class="upload-image">
+                    <label for="form_place-description">Image</label>
+                    <input type="file" name="image">
                 </div>
                 <div class="map-input">
                     <div id="map"></div>
@@ -125,7 +130,8 @@
     <div class="place-popup hide-popup popup" data-popup-name="modifyPlace">
         <div class="all-popups add-place">
             <h3>Modify place</h3>
-            <form method="POST" action="/places_app/places/controllers/UPDATE_PLACE.php" id="modifyPlaceForm">
+            <form method="POST" action="/places_app/places/controllers/UPDATE_PLACE.php" id="modifyPlaceForm"
+                enctype="multipart/form-data">
                 <input type="hidden" value="<?=$_SESSION["user_id"]?>" name="user_id">
                 <div>
                     <label for="form_place-name">name</label>
@@ -135,6 +141,10 @@
                     <label for="form_place-description">description</label>
                     <textarea name="description" id="form_place-description" class="text-input" cols="30"
                         rows="10"></textarea>
+                </div>
+                <div class="upload-image">
+                    <label for="form_place-description">Image</label>
+                    <input type="file" name="image">
                 </div>
                 <div class="map-input">
                     <div id="map2"></div>
